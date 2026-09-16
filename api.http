@@ -1,0 +1,53 @@
+### Test APIs
+
+# Lấy danh sách
+GET http://localhost:3001/api/resources
+
+###
+# Tìm kiếm và filter
+GET http://localhost:3001/api/resources?search=react&category=Frontend&sortBy=upvotes
+
+###
+# Thêm mới (Thành công)
+POST http://localhost:3001/api/resources
+Content-Type: application/json
+
+{
+  "title": " React Query Documentation ",
+  "url": "https://tanstack.com/query/v5",
+  "category": "Frontend",
+  "tags": ["react", "data fetching", "cache"],
+  "summary": "Tài liệu chính thức của React Query v5"
+}
+
+###
+# Thêm mới (Lỗi do sai category và thiếu title)
+POST http://localhost:3001/api/resources
+Content-Type: application/json
+
+{
+  "url": "https://notitle.com",
+  "category": "SaiRoi",
+  "tags": []
+}
+
+###
+# Upvote (Cần sửa ID bên dưới cho khớp DB)
+PATCH http://localhost:3001/api/resources/60d21b4667d0d8992e610c85/upvote
+
+###
+# Cập nhật (Cần sửa ID)
+PUT http://localhost:3001/api/resources/60d21b4667d0d8992e610c85
+Content-Type: application/json
+
+{
+  "title": "React Query Doc V5",
+  "url": "https://tanstack.com/query/v5",
+  "category": "Frontend",
+  "tags": ["react", "cache"],
+  "summary": "Update summary"
+}
+
+###
+# Xóa (Cần sửa ID)
+DELETE http://localhost:3001/api/resources/60d21b4667d0d8992e610c85
