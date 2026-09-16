@@ -15,7 +15,7 @@ const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:5174",
   // Vercel frontend
-  "https://fe-task-management-flame.vercel.app",
+  "https://dev-pulse-frontend-thaisonpham26.vercel.app",
 ];
 
 app.use(
